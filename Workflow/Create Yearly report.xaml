@@ -2,8 +2,9 @@
   <x:Members>
     <x:Property Name="inMonthlyReportfolder" Type="InArgument(upr:ILocalResource)" />
     <x:Property Name="in_VendorID" Type="InArgument(x:String)" />
+    <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>887,1732</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>861,1732</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -199,7 +200,7 @@
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
-      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_Result]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="626,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Result" WorkbookPath="[inMonthlyReportfolder.LocalPath+&quot;\Yearly-Report-2023-&quot;+in_VendorID+&quot;.xlsx&quot;]" />
+      <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_Result]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="626,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_config(&quot;WorkBookSheetName&quot;).ToString]" WorkbookPath="[inMonthlyReportfolder.LocalPath+&quot;\Yearly-Report-2023-&quot;+in_VendorID+&quot;.xlsx&quot;]" />
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_VendorID]" />
     </Sequence>
   </Sequence>
