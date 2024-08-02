@@ -1,5 +1,5 @@
 {
-  "name": "Process Design Document",
+  "name": "Rencita_Capstone_2",
   "projectId": "3825cdb8-4d9d-4e8d-b9d3-2df1f368467b",
   "description": "Download all the monthly reports for a specific vendor and \r\ngenerate a yearly report.\r",
   "main": "Main.xaml",

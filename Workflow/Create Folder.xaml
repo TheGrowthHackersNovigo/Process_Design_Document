@@ -6,7 +6,7 @@
     <x:Property Name="out_MonthlyReportfolder" Type="OutArgument(upr:ILocalResource)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>861,1169</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>871,1725</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -126,19 +126,30 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="592,1104" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap2010:Annotation.AnnotationText="Create the folder to store downloaded files" DisplayName="Sequence : Create folder" sap:VirtualizedContainerService.HintSize="592,1660" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:UiElement" Name="outputElement">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">NGetAttributeGeneric`1_1</x:String>
+            <x:String x:Key="SourcePropertyName">OutUiElement</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Work Items" sap:VirtualizedContainerService.HintSize="530,1016" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="a7c9365c-602e-4234-b02b-7fe61edd7f3e" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Work Items" sap:VirtualizedContainerService.HintSize="530,1541" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="a7c9365c-602e-4234-b02b-7fe61edd7f3e" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,776" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do : Create folder" sap:VirtualizedContainerService.HintSize="496,1301" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="VendorDetails" />
             </Sequence.Variables>
@@ -147,13 +158,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_TransactionItem.SpecificContent(&quot;Actions Url&quot;).ToString]" Version="V3" />
-            <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="text" DisplayName="Get Attribute 'TaxID: FR329083'" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[VendorDetails]" ScopeIdentifier="a7c9365c-602e-4234-b02b-7fe61edd7f3e" Version="V3">
+            <uix:NGoToUrl DisplayName="Go To URL : Acme actions" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_TransactionItem.SpecificContent(&quot;Actions Url&quot;).ToString]" Version="V3" />
+            <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="text" DisplayName="Get Attribute 'TaxID" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" OutUiElement="[outputElement]" Result="[VendorDetails]" ScopeIdentifier="a7c9365c-602e-4234-b02b-7fe61edd7f3e" Version="V3">
               <uix:NGetAttributeGeneric.Target>
                 <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/work-items/101910282" DesignTimeRectangle="339, 461, 373, 80" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='                              FR329083                              Blue Lagoon                              Avenue Foch 28                              Paris, France                         ' check:innerText='TaxID: FR329083&amp;#xD;&amp;#xA;Name: Blue Lagoon&amp;#xD;&amp;#xA;Address: Avenue Foch 28&amp;#xD;&amp;#xA;City: Paris, France' /&gt;" Guid="0cb8f60b-d80e-460a-b9ed-b6d58f75277d" InformativeScreenshot="8e75fb739fc2c819ffb8fd8ac1261923.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Work Items' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NGetAttributeGeneric.Target>
             </uix:NGetAttributeGeneric>
-            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign DisplayName="Assign : vendor Id" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_VendorID]</OutArgument>
               </Assign.To>
@@ -161,7 +172,8 @@
                 <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match( VendorDetails, "(?&lt;=TaxID:\s*)[A-Z\d]+(?=$|\s*)" ).Value]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <ui:LogMessage DisplayName="Log Message : Vendor ID" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Vendor Id is &quot; + out_VendorID]" />
+            <Assign DisplayName="Assign : Output Folder path" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_ReportFolderPath]</OutArgument>
               </Assign.To>
@@ -169,7 +181,9 @@
                 <InArgument x:TypeArguments="x:String">[in_Config("FolderPath").ToString+out_VendorID+"\"]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Output="[out_MonthlyReportfolder]" Path="[out_ReportFolderPath]" />
+            <ui:LogMessage DisplayName="Log Message :output folder path" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Output folder path is &quot; + out_ReportFolderPath]" />
+            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder : Output " sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Output="[out_MonthlyReportfolder]" Path="[out_ReportFolderPath]" />
+            <ui:LogMessage DisplayName="Log Message : Created " sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Folder Created &quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
